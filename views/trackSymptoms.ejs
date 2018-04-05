@@ -1,0 +1,82 @@
+<% include header %>
+
+    <!-- Page Content -->
+    
+<section id="contact-page">
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Symptoms Tracker
+                    <small>Track your daily symptoms</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">symptomstracker</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Enter Details</h3>
+                <form name="sentMessage" id="contactForm" method="post" action="/addSymptoms">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Cancer Type</label>
+                            <input type="text" class="form-control" id="cancertype" name="cancertype" required data-validation-required-message="Please enter cancer type">
+                            <p class="help-block"></p>
+                        </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Date</label>
+                            <input type="date" class="form-control" id="date" name="date">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Age</label>
+                            <input type="text" class="form-control" id="location" name="location" required data-validation-required-message="Please enter your location">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Severity</label>
+                            <input type="text" class="form-control" id="severity" name="severity" required data-validation-required-message="Please enter Severity">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Description:</label>
+                            <textarea rows="10" cols="100" class="form-control" id="description" name="description" required data-validation-required-message="Please enter your symptom description" maxlength="500" style="resize:none"></textarea>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.row -->
+        </section>
+   
+
+      <% include footer %>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+</body>
+</html>

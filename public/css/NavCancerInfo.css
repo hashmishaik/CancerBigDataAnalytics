@@ -1,0 +1,23 @@
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse{
+    padding: 0;
+    max-height: none;
+    background-color: #D0D0D0;
+    float: left;
+    position: fixed;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+    
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+     background-color: #D0D0D0;
+  }
+}

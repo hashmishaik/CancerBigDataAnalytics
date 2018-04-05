@@ -1,0 +1,38 @@
+<% include header %>
+
+    <section id="blog" class="container">
+        <div class="center">
+            <h2>Symptoms History</h2>
+            <p class="lead">A doctor who cannot take a good history and a patient who cannot give one are in danger of giving and receiving bad treatment</p>
+        </div>
+
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-8">
+                        <%for(var i = 0; i< data.length; i++) {%>
+                        <div class="media comment_section">
+                            <div class="pull-left post_comments">
+                                <a href="#"><img src="images/history.png" class="img-circle" alt="" /></a>
+                            </div>
+                            <div class="media-body post_reply_comments">
+                                <h3><%=data[i].cancer_type%></h3>
+                                <h4><%=data[i].date%></h4>
+                                <p><%=data[i].description%></p>
+                                <a href="#">Send to Doctor</a>
+                            </div>
+                        </div> 
+                        <%}%>
+       </section>
+
+
+
+<% include footer %>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Cancer Project</title>
+	
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body class="homepage">
+
+    <header id="header">
+    	<%if(session1!=""){%>
+    	<div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <div class="top-number"><p></p></div>
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                        <div class="top-number" align="right">
+                        	<p>Welcome <%=sess.fname%>&nbsp;<%=sess.lname%>&nbsp;&nbsp;&nbsp;&nbsp;Last Login:&nbsp;<%=sess.lastlogin%></p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.container-->
+        </div>
+        <%}%>
+        
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="images/logo.png" alt="logo"></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <!--<li><a href="about-us.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li> -->
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visualize Cancer Data<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                               <li><a href="/visualization">Visualize on Charts</a></li>
+                               <li><a href="/visualization_map">Visualize on Maps</a></li>
+                                <li><% session1 %></li>
+
+                            </ul>
+                        </li>
+                      
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore Cancer<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                            	<li><a href="/cancerinfo">Cancer Information</a></li>
+                                <li><a href="/screening">Recommend Screening</a></li>
+                                <li><a href="/taxanomy">Cancer Taxonomy</a></li>
+                                <li><a href="/maps">Find Nearest Hospital</a></li>
+                                <li><% session1 %></li>
+
+                            </ul>
+                        </li>
+
+                        <!--<li><a href="blog.html">Blog</a></li>  -->
+                        
+                        <%if(session1!=""){%>
+                                 <%if(sess.isAdmin!="0"){%>
+                                <li><a href="/admin">Admin Dashboard</a></li>
+                                <%}%>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Track My Health <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="trackSymptoms">Track your Symptoms</a></li>
+                                <li><a href="viewhistory">Symptoms History</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="/signout">Log Out</a></li>
+                        <%}else{%>
+                        <li><a href="#signin" data-toggle="modal">Log In</a></li>    				
+					    <%}%>
+					       		                
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
+
+   	<!-- Sign up/Signin -->
+	
+	<div class="modal fade" id="signin" role="dialog">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="thin text-center">Sign in to your account</h3>
+                            <p class="text-center text-muted">Not Registered? Please 
+                                <a href="#signup" data-toggle="modal">Register</a> to login
+                            </p>
+                        </div>
+                        <form id="login" name="login" method="post" action="/signin">
+                            <div class="modal-body">
+                                <label>Username/Email 
+                                <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" type="text" id="email" value="" name="email" maxlength="64" required>
+                                <label>Password 
+                                <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" type="password" id="password" value="" name="password" maxlength="64" required>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-8">
+
+                                    </div>
+                                    <div class="col-lg-4 text-right">
+                                        <button class="btn btn-action" type="submit" value="submit">Sign in</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="signup" role="dialog">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="thin text-center">Register a new account</h3>
+                                <p class="text-center text-muted">
+                                    Already have an account with us? Please
+                                    <a href="#signin" data-toggle="modal">Login</a>
+                                    to continue
+                                </p>
+                        </div>
+                        <form id="register" name="register" method="post" action="/signup">
+                        <div class="modal-body">
+                            <div class="top-margin">
+                                <label for="firstname">First Name
+                                <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" type="text" id="firstname" value="" name="firstname" maxlength="64" required>
+                            </div>
+                            <div class="top-margin">
+                                <label for="lastname">Last Name
+                                <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" type="text" id="lastname" value="" name="lastname" maxlength="64" required>
+                            </div>
+                            <div class="top-margin">
+                                <label for="email">
+                                Email Address
+                                <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" type="text" id="email" value="" name="email" maxlength="64" required>
+                            </div>
+                            <div class="row top-margin">
+                                <div class="col-sm-6">
+                                    <label for="password">
+                                    Password
+                                    <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" type="password" id="password" value="" name="password" maxlength="64" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>
+                                    Confirm Password
+                                    <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" type="password" id="password1" value="" name="password1" maxlength="64" required>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                </div>
+                                <div class="col-lg-4 text-right">
+                                    <button class="btn btn-action" type="submit" value="submit">Register</button>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
