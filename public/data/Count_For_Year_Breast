@@ -1,0 +1,5 @@
+SELECT  breast.year_of_diagnosis AS Year,
+        count(breast.year_of_diagnosis) AS Count
+FROM breast
+GROUP BY breast.year_of_diagnosis
+ORDER BY breast.year_of_diagnosis

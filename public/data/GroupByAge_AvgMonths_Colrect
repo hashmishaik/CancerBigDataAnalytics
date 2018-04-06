@@ -1,0 +1,5 @@
+SELECT colrect.age_at_diagnosis AS age, avg(colrect.survival_months) AS avg_months
+FROM colrect
+WHERE colrect.age_at_diagnosis <= 130 AND colrect.survival_months <> 9999
+GROUP BY colrect.age_at_diagnosis
+ORDER BY colrect.age_at_diagnosis

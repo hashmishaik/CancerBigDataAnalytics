@@ -1,0 +1,5 @@
+SELECT  bladder.year_of_diagnosis AS Year,
+        count(bladder.year_of_diagnosis) AS Count
+FROM bladder
+GROUP BY bladder.year_of_diagnosis
+ORDER BY bladder.year_of_diagnosis

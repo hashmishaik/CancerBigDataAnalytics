@@ -1,0 +1,5 @@
+SELECT  colrect.year_of_diagnosis AS Year,
+        count(colrect.year_of_diagnosis) AS Count
+FROM colrect
+GROUP BY colrect.year_of_diagnosis
+ORDER BY colrect.year_of_diagnosis

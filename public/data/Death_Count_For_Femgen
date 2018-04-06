@@ -1,0 +1,6 @@
+SELECT  femgen.year_of_diagnosis AS Year,
+        count(femgen.vital_status_recode) AS Dead
+FROM femgen
+WHERE femgen.vital_status_recode = 4
+GROUP BY femgen.year_of_diagnosis
+ORDER BY femgen.year_of_diagnosis

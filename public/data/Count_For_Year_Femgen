@@ -1,0 +1,5 @@
+SELECT  femgen.year_of_diagnosis AS Year,
+        count(femgen.year_of_diagnosis) AS Count
+FROM femgen
+GROUP BY femgen.year_of_diagnosis
+ORDER BY femgen.year_of_diagnosis

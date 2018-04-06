@@ -1,0 +1,5 @@
+SELECT  count(respiratory.birthplace_state) AS value,
+        respiratory.birthplace_state AS code
+FROM respiratory
+WHERE respiratory.birthplace_country='USA'
+GROUP BY respiratory.birthplace_state

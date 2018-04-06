@@ -1,0 +1,29 @@
+SELECT 'Breast' AS Name, breast.year_of_diagnosis AS Year, count(breast.year_of_diagnosis) AS Count
+FROM breast
+GROUP BY breast.year_of_diagnosis
+ORDER BY breast.year_of_diagnosis
+UNION ALL
+SELECT 'Bladder' AS Name, bladder.year_of_diagnosis AS Year, count(bladder.year_of_diagnosis) AS Count
+FROM bladder
+GROUP BY bladder.year_of_diagnosis
+ORDER BY bladder.year_of_diagnosis
+UNION ALL
+SELECT 'Colrect' AS Name, colrect.year_of_diagnosis AS Year, count(colrect.year_of_diagnosis) AS Count
+FROM colrect
+GROUP BY colrect.year_of_diagnosis
+ORDER BY colrect.year_of_diagnosis
+UNION ALL
+SELECT 'Femgen' AS Name, femgen.year_of_diagnosis AS Year, count(femgen.year_of_diagnosis) AS Count
+FROM femgen
+GROUP BY femgen.year_of_diagnosis
+ORDER BY femgen.year_of_diagnosis
+UNION ALL
+SELECT 'Malegem' AS Name, malegen.year_of_diagnosis AS Year, count(malegen.year_of_diagnosis) AS Count
+FROM malegen
+GROUP BY malegen.year_of_diagnosis
+ORDER BY malegen.year_of_diagnosis
+UNION ALL
+SELECT 'Respiratory' AS Name, respiratory.year_of_diagnosis AS Year, count(respiratory.year_of_diagnosis) AS Count
+FROM respiratory
+GROUP BY respiratory.year_of_diagnosis
+ORDER BY respiratory.year_of_diagnosis

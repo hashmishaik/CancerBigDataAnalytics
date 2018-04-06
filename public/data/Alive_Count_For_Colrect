@@ -1,0 +1,6 @@
+SELECT  colrect.year_of_diagnosis AS Year,
+        count(colrect.vital_status_recode) AS Alive
+FROM colrect
+WHERE colrect.vital_status_recode = 1
+GROUP BY colrect.year_of_diagnosis
+ORDER BY colrect.year_of_diagnosis

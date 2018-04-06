@@ -1,0 +1,6 @@
+SELECT  breast.year_of_diagnosis AS Year,
+        count(breast.vital_status_recode) AS Dead
+FROM breast
+WHERE breast.vital_status_recode = 4
+GROUP BY breast.year_of_diagnosis
+ORDER BY breast.year_of_diagnosis

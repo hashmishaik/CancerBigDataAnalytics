@@ -1,0 +1,6 @@
+SELECT  bladder.year_of_diagnosis AS Year,
+        count(bladder.vital_status_recode) AS Alive
+FROM bladder
+WHERE bladder.vital_status_recode = 1
+GROUP BY bladder.year_of_diagnosis
+ORDER BY bladder.year_of_diagnosis

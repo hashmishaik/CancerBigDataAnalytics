@@ -1,0 +1,5 @@
+SELECT  respiratory.year_of_diagnosis AS Year,
+        count(respiratory.year_of_diagnosis) AS Count
+FROM respiratory
+GROUP BY respiratory.year_of_diagnosis
+ORDER BY respiratory.year_of_diagnosis

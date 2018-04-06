@@ -1,0 +1,9 @@
+SELECT  breast.birthplace_state AS State,
+        count(CASE WHEN breast.vital_status_recode = 4 THEN breast.vital_status_recode END) AS Count,
+        count(CASE WHEN breast.vital_status_recode = 4 AND breast.sex = 1 THEN breast.birthplace_state END) AS Male,
+        count(CASE WHEN breast.vital_status_recode = 4 AND breast.sex = 2 THEN breast.birthplace_state END) AS Female
+FROM breast
+WHERE breast.birthplace_state IN (SELECT b.birthplace_state
+                                  FROM breast b
+                                  WHERE b.birthplace_country='USA')
+GROUP BY breast.birthplace_state

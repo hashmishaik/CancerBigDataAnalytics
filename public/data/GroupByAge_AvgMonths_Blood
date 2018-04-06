@@ -1,0 +1,5 @@
+SELECT blood.age_at_diagnosis AS age, avg(blood.survival_months) AS avg_months
+FROM blood
+WHERE blood.age_at_diagnosis <= 130 AND blood.survival_months <> 9999
+GROUP BY blood.age_at_diagnosis
+ORDER BY blood.age_at_diagnosis

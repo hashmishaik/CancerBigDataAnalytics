@@ -1,0 +1,5 @@
+SELECT  malegen.year_of_diagnosis AS Year,
+        count(malegen.year_of_diagnosis) AS Count
+FROM malegen
+GROUP BY malegen.year_of_diagnosis
+ORDER BY malegen.year_of_diagnosis

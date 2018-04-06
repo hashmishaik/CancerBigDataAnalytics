@@ -1,0 +1,6 @@
+SELECT  malegen.year_of_diagnosis AS Year,
+        count(malegen.vital_status_recode) AS Dead
+FROM malegen
+WHERE malegen.vital_status_recode = 4
+GROUP BY malegen.year_of_diagnosis
+ORDER BY malegen.year_of_diagnosis
